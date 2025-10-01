@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Navbar() {
   return (
-    <nav className="bg-pink-200 p-4 flex justify-between items-center">
+    <nav className="bg-slate-500 p-4 flex justify-between items-center">
       <h1 className="font-bold text-xl">Lumo</h1>
       <div className="space-x-4">
         <Link href="/">Home</Link>
