@@ -16,7 +16,7 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
 
-    const { data, error: loginError } = await supabase.auth.signInWithPassword({
+    const { error: loginError } = await supabase.auth.signInWithPassword({
       email,
       password
     });
@@ -28,12 +28,12 @@ export default function LoginPage() {
     }
 
     setLoading(false);
-    router.push('/dashboard'); // redirect to dashboard after login
+    router.push('/dashboard');
   };
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="p-6 bg-white rounded shadow-md w-96" onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="p-6 bg-white rounded shadow-md w-96">
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         {error && <p className="text-red-500">{error}</p>}
         <input

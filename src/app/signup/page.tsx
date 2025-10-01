@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import { useRouter } from 'next/navigation';
 
 export default function SignupPage() {
   const [email, setEmail] = useState('');
@@ -10,7 +9,6 @@ export default function SignupPage() {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,12 +34,12 @@ export default function SignupPage() {
     });
 
     setLoading(false);
-    router.push('/login'); // redirect to login after signup
+    alert('Signup successful! Please login.');
   };
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="p-6 bg-white rounded shadow-md w-96" onSubmit={handleSignup}>
+      <form onSubmit={handleSignup} className="p-6 bg-white rounded shadow-md w-96">
         <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
         {error && <p className="text-red-500">{error}</p>}
         <input
